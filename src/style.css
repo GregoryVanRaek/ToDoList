@@ -2,6 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-.test{
-    @apply bg-emerald-400;
+body{
+    font-family: 'Open Sans', sans-serif;
+    @apply bg-slate-200;
+}
+
+#content{
+    @apply flex;
+}
+
+.menu{
+    @apply w-20 h-16 pl-8;
+    cursor:pointer;
+}
+
+.navBar{
+    @apply flex items-center justify-center basis-4 border-b-2 border-black;
+    height:15vh;
+}
+
+.navBarTitle{
+    @apply text-6xl text-center;
+    flex-grow: 1;
+}
+
+#newProject{
+    @apply w-8 h-8 cursor-pointer;
+}
+
+.newProjectData{
+    position: absolute;
+    left:40%;
+    top:50%;
+}
+
+.projectMenuTitle{
+    @apply text-2xl font-bold flex items-center justify-between pr-12;
+}
+
+.projectMenu {
+    @apply w-60 bg-black opacity-70 flex flex-col text-white pl-4 pt-4 gap-6;
+    height: 85vh;
+    transition:transform 0.5s ease;
+    transform: translateX(-100%);
+}
+
+.projectMenuSummary{
+    @apply flex flex-col gap-6 pl-2;
+}
+
+.projectMenuTransition{
+    transition:transform 0.5s ease;
+    transform:translateX(0);
 }
