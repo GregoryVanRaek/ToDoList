@@ -604,6 +604,7 @@ input[type="submit"]{
 }
 
 .newProjectData{
+
 }
 
 .projectDiv {
@@ -611,7 +612,6 @@ input[type="submit"]{
   flex-direction: row;
   gap: 1rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
 .projectMenuTitle {

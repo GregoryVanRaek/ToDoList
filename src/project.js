@@ -13,13 +13,14 @@ function Task(title, description, dueDate, priority) {
     this.dueDate = dueDate;
     this.priority = priority;
     this.done = false;
-};
+}
 
 function CreateProject(name){
     let newProject = new Project(name);
     projects.push(newProject);
 }
 
+// eslint-disable-next-line no-unused-vars
 const NewProject = (() => {
 
     let isFormDisplayed = false;
