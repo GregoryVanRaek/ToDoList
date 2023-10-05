@@ -7,13 +7,33 @@ body{
     @apply bg-slate-200;
 }
 
+#cancel{
+    @apply bg-green-300;
+}
+
+.chooseProjectNameDiv{
+    @apply flex gap-6;
+}
+
 #content{
     @apply flex;
+}
+
+#create{
+    @apply bg-red-300;
+}
+
+input[type="submit"]{
+    cursor:pointer;
 }
 
 .menu{
     @apply w-20 h-16 pl-8;
     cursor:pointer;
+}
+
+#name{
+    @apply bg-black border border-white rounded-sm;
 }
 
 .navBar{
@@ -31,9 +51,15 @@ body{
 }
 
 .newProjectData{
+    @apply bg-black text-white opacity-7 p-4 rounded-md flex gap-6 flex-col items-center;
     position: absolute;
     left:40%;
-    top:50%;
+    top:30%;
+    height:30vh;
+}
+
+.projectDiv{
+    @apply flex gap-8;
 }
 
 .projectMenuTitle{
@@ -44,7 +70,7 @@ body{
     @apply w-60 bg-black opacity-70 flex flex-col text-white pl-4 pt-4 gap-6;
     height: 85vh;
     transition:transform 0.5s ease;
-    transform: translateX(-100%);
+    transform: translateX(0);
 }
 
 .projectMenuSummary{
@@ -53,5 +79,9 @@ body{
 
 .projectMenuTransition{
     transition:transform 0.5s ease;
-    transform:translateX(0);
+    transform:translateX(-100%);
+}
+
+#remove{
+    cursor:pointer;
 }

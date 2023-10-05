@@ -540,8 +540,27 @@ body{
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
+#cancel {
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 239 172 / var(--tw-bg-opacity));
+}
+
+.chooseProjectNameDiv {
+  display: flex;
+  gap: 1.5rem;
+}
+
 #content {
   display: flex;
+}
+
+#create {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+}
+
+input[type="submit"]{
+  cursor:pointer;
 }
 
 .menu {
@@ -549,6 +568,15 @@ body{
   width: 5rem;
   padding-left: 2rem;
   cursor:pointer;
+}
+
+#name {
+  border-radius: 0.125rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .navBar {
@@ -576,9 +604,14 @@ body{
 }
 
 .newProjectData{
-  position: absolute;
-  left:40%;
-  top:50%;
+}
+
+.projectDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
 .projectMenuTitle {
@@ -605,7 +638,7 @@ body{
   opacity: 0.7;
   height: 85vh;
   transition:transform 0.5s ease;
-  transform: translateX(-100%);
+  transform: translateX(0);
 }
 
 .projectMenuSummary {
@@ -617,5 +650,5 @@ body{
 
 .projectMenuTransition{
   transition:transform 0.5s ease;
-  transform:translateX(0);
+  transform:translateX(-100%);
 }

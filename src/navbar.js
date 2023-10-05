@@ -1,4 +1,5 @@
 import * as domElement from './dom.js';
+import { displayProjects } from './project.js';
 
 const navBar = (() => {
     // Dom
@@ -11,7 +12,10 @@ const navBar = (() => {
     menu.alt = "https://www.flaticon.com/free-icons/hamburger";
     title.textContent = "To Do List";
 
-    menu.addEventListener('click', () => {
+    displayProjects();
+
+    menu.addEventListener('click', (event) => {
+        event.preventDefault();
         const projectMenu = domElement.projectMenu;
         projectMenu.classList.toggle('projectMenuTransition')
     });

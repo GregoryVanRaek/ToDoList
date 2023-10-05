@@ -18,47 +18,73 @@ function Task(title, description, dueDate, priority) {
 function CreateProject(name){
     let newProject = new Project(name);
     projects.push(newProject);
-    console.log(projects);
 }
 
 const NewProject = (() => {
 
+    let isFormDisplayed = false;
+
     domElement.newProject.addEventListener('click', () => {
-        let newProjectData = document.createElement('form');
-        let newProjectNameDiv = document.createElement('div');
-        let newProjectNameLabel = document.createElement('label');
-        let newProjectNameInput = document.createElement('input');
-        let newProjectTitle = document.createElement('h2');
-        let newProjectCreate = document.createElement('input');
+        // Dom
+        if(!isFormDisplayed)
+        {
+            isFormDisplayed = true;
+            let newProjectData = document.createElement('form');
+            let newProjectNameDiv = document.createElement('div');
+            let chooseProjectNameDiv = document.createElement('div');
+            let newProjectNameLabel = document.createElement('label');
+            let newProjectNameInput = document.createElement('input');
+            let newProjectTitle = document.createElement('h2');
+            let newProjectCreate = document.createElement('input');
+            let cancel = document.createElement('input');
+            
+
+            // Content
+            newProjectTitle.textContent = "New project";
         
-        newProjectTitle.textContent = "Adding a new project";
-    
-        newProjectNameLabel.for = "name";
-        newProjectNameLabel.textContent = "Name";
-    
-        newProjectNameInput.type ='text';
-        newProjectNameInput.name = "name";
-        newProjectNameInput.id = "name";
+            newProjectNameLabel.for = "name";
+            newProjectNameLabel.textContent = "Name";
+        
+            newProjectNameInput.type ='text';
+            newProjectNameInput.name = "name";
+            newProjectNameInput.id = "name";
 
-        newProjectCreate.type = 'submit';
-        newProjectCreate.value = 'Create';
+            newProjectCreate.type = 'submit';
+            newProjectCreate.value = 'Create';
+            newProjectCreate.id = 'create';
 
-        newProjectNameDiv.classList.add('newProjectData');
-    
-        newProjectNameDiv.appendChild(newProjectTitle);
-        newProjectNameDiv.appendChild(newProjectNameLabel);
-        newProjectNameDiv.appendChild(newProjectNameInput);
-        newProjectNameDiv.appendChild(newProjectCreate);
-        newProjectData.appendChild(newProjectNameDiv);
+            cancel.type = 'submit';
+            cancel.value = 'Cancel';
+            cancel.id = 'cancel';
 
-        domElement.body.appendChild(newProjectData);
+            //Style
+            newProjectNameDiv.classList.add('newProjectData');
+            chooseProjectNameDiv.classList.add('chooseProjectNameDiv');
+        
+            // Structure
+            newProjectNameDiv.appendChild(newProjectTitle);
+            chooseProjectNameDiv.appendChild(newProjectNameLabel);
+            chooseProjectNameDiv.appendChild(newProjectNameInput);
+            newProjectNameDiv.appendChild(chooseProjectNameDiv);
+            newProjectNameDiv.appendChild(newProjectCreate);
+            newProjectNameDiv.appendChild(cancel);
 
-        newProjectData.addEventListener('submit', (event) => {
-            event.preventDefault();
-            CreateProject(event.target.name.value);
-            newProjectNameDiv.classList.remove('newProjectData');
-            domElement.body.removeChild(newProjectData);
-        } )
+            newProjectData.appendChild(newProjectNameDiv);
+
+            domElement.body.appendChild(newProjectData);
+
+            newProjectData.addEventListener('submit', (event) => {
+                event.preventDefault();
+                CreateProject(event.target.name.value);
+                newProjectNameDiv.classList.remove('newProjectData');
+                domElement.body.removeChild(newProjectData);
+                displayProjects();
+            })
+
+            cancel.addEventListener('click', () => {
+                domElement.body.removeChild(newProjectData);
+            })
+        }
     })
 })();
 
@@ -81,10 +107,22 @@ projects.push(pro4);
 pro4.tasks.push(task4);
 
 
-const displayProjects = (() => {
+const displayProjects = () => {
+    domElement.projectMenuSummary.innerHTML = "";
     projects.forEach(project => {
             let projectDiv = document.createElement('div');
-            projectDiv.textContent = project.name;
+            let projectName = document.createElement('div');
+            let removeProject = document.createElement('div');
+            projectName.textContent = project.name;
+            removeProject.textContent = '-';
+            removeProject.id = "remove";
+
+            projectDiv.classList.add('projectDiv');
+
+            projectDiv.appendChild(projectName);
+            projectDiv.appendChild(removeProject);
             domElement.projectMenuSummary.appendChild(projectDiv);
     })
-})();
+};
+
+export { displayProjects }
