@@ -8,7 +8,7 @@ body{
 }
 
 #cancel{
-    @apply bg-green-300;
+    @apply bg-green-300 p-2 rounded-md;
 }
 
 .chooseProjectNameDiv{
@@ -20,7 +20,7 @@ body{
 }
 
 #create{
-    @apply bg-red-300;
+    @apply bg-red-300 p-2 rounded-md;
 }
 
 input[type="submit"]{

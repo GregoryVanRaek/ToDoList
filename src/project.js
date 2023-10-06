@@ -15,7 +15,7 @@ function Task(title, description, dueDate, priority) {
     this.done = false;
 }
 
-function CreateProject(name){
+function CreateProject (name) {
     let newProject = new Project(name);
     projects.push(newProject);
 }
@@ -84,6 +84,7 @@ const NewProject = (() => {
 
             cancel.addEventListener('click', () => {
                 domElement.body.removeChild(newProjectData);
+                isFormDisplayed = false;
             })
         }
     })
